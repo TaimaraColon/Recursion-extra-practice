@@ -5,7 +5,7 @@ using namespace std;
 
 /*
     *+*+*+*+*+* Find the minimum value of a vector using recursion *+*+*+*+*
-         ! Return its index ! ! Use a helper function !
+         ! Return the value at index ! ! Use a helper function !
 */
 
 int findMinimumValueHelper(vector<int>v, int index){
