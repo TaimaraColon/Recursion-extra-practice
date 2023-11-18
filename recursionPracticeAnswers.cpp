@@ -8,23 +8,24 @@ using namespace std;
          ! Return the value at index ! ! Use a helper function !
 */
 
-int findMinimumValueHelper(vector<int>v, int index){
-    if(v.size() == 0){    // vector is empty
-        return -1;
-    }
-    if(index == v.size()-1){   //last element
-        return v[index];
-    }
-    int minimumValue = findMinimumValueHelper(v, index+1);  //recursive step
-    if(v[index] < minimumValue){     //checks for the minimum value
-        return v[index];
-    }else{
+int findMinimumValueHelper(vector<int>v, int index,int minimumValue){
+    
+    if(index == v.size()){   //passed the end of the vector 
         return minimumValue;
     }
+      //recursive step
+    if(v[index] < minimumValue){     //checks for the minimum value
+        minimumValue = v[index];
+    }
+    return findMinimumValueHelper(v, index + 1, minimumValue);   //moves through the vector
+  
 }
 
 int findMinimumValue(vector<int>v){
-    return findMinimumValueHelper(v, 0); //search starts at 0
+    if(v.empty()){    // check if vector is empty
+        return -1;
+    }
+    return findMinimumValueHelper(v, 0, v[0]); //search starts at the first element
 }
 
 
